@@ -1,0 +1,212 @@
+
+.student-register-page {
+  min-height: 100vh;
+  background-color: #1a2b4a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.student-register-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  max-width: 1100px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.student-register-left {
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #f9fafb;
+}
+
+.student-register-logo {
+  width: 100%;
+  max-width: 25rem;
+  height: auto;
+}
+
+.student-register-brand {
+  font-size: 36px;
+  font-weight: 700;
+  color: #1a2b4a;
+  margin: 0 0 8px 0;
+  letter-spacing: 2px;
+  font-family: serif;
+}
+
+.student-register-tagline {
+  font-size: 24px;
+  font-weight: 400;
+  color: #1a2b4a;
+  margin: 0;
+  font-family: serif;
+}
+
+.student-register-right {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+}
+
+.student-register-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a2b4a;
+  margin: 0 0 24px 0;
+  text-align: center;
+}
+
+.student-register-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.student-register-tab {
+  padding: 12px;
+  background-color: #f3f4f6;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.student-register-tab.active {
+  background-color: #1a2b4a;
+  color: #ffffff;
+}
+
+.student-register-tab:hover:not(.active) {
+  background-color: #e5e7eb;
+}
+
+.student-register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.student-register-form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+}
+
+.student-register-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.student-register-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a2b4a;
+  margin-bottom: 6px;
+}
+
+.student-register-input {
+  padding: 12px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #1a2b4a;
+  transition: border-color 0.2s;
+}
+
+.student-register-input:focus {
+  outline: none;
+  border-color: #1a2b4a;
+}
+
+.student-register-input::placeholder {
+  color: #9ca3af;
+}
+
+.student-register-password-wrapper {
+  position: relative;
+}
+
+.student-register-password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.student-register-icon {
+  width: 18px;
+  height: 18px;
+  color: #6b7280;
+}
+
+.student-register-button {
+  padding: 14px;
+  background-color: #1a2b4a;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 8px;
+}
+
+.student-register-button:hover {
+  background-color: #0f1a2e;
+}
+
+.student-register-login {
+  text-align: center;
+  font-size: 14px;
+  color: #6b7280;
+  margin: 16px 0 0 0;
+}
+
+.student-register-login button {
+  background: none;
+  border: none;
+  color: #1a2b4a;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.student-register-login button:hover {
+  color: #0f1a2e;
+}
+
+@media (max-width: 768px) {
+  .student-register-card {
+    grid-template-columns: 1fr;
+  }
+
+  .student-register-left {
+    padding: 40px 20px;
+  }
+
+  .student-register-right {
+    padding: 30px 20px;
+  }
+
+  .student-register-form-row {
+    grid-template-columns: 1fr;
+  }
+}

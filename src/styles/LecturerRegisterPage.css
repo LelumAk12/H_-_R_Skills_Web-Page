@@ -1,0 +1,204 @@
+
+.lecturer-register-page {
+  min-height: 100vh;
+  background-color: #d4a017;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.lecturer-register-card {
+  background-color: #ffffff;
+  border-radius: 16px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  display: grid;
+  grid-template-columns: 1fr 1.2fr;
+  max-width: 1000px;
+  width: 100%;
+  overflow: hidden;
+}
+
+.lecturer-register-left {
+  padding: 60px 40px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #ffffff;
+}
+
+.lecturer-register-logo {
+  width: 100%;
+  max-width: 25rem;
+  height: auto;
+}
+
+.lecturer-register-brand {
+  font-size: 36px;
+  font-weight: 700;
+  color: #1a2b4a;
+  margin: 0 0 8px 0;
+  letter-spacing: 2px;
+  font-family: serif;
+}
+
+.lecturer-register-tagline {
+  font-size: 24px;
+  font-weight: 400;
+  color: #1a2b4a;
+  margin: 0;
+  font-family: serif;
+}
+
+.lecturer-register-right {
+  padding: 40px;
+  display: flex;
+  flex-direction: column;
+  background-color: #f9fafb;
+}
+
+.lecturer-register-title {
+  font-size: 28px;
+  font-weight: 700;
+  color: #1a2b4a;
+  margin: 0 0 24px 0;
+  text-align: center;
+}
+
+.lecturer-register-tabs {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 8px;
+  margin-bottom: 24px;
+}
+
+.lecturer-register-tab {
+  padding: 12px;
+  background-color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  font-size: 15px;
+  font-weight: 600;
+  color: #6b7280;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.lecturer-register-tab.active {
+  background-color: #d4a017;
+  color: #1a2b4a;
+}
+
+.lecturer-register-tab:hover:not(.active) {
+  background-color: #f3f4f6;
+}
+
+.lecturer-register-form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.lecturer-register-form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.lecturer-register-label {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a2b4a;
+  margin-bottom: 6px;
+}
+
+.lecturer-register-input {
+  padding: 12px 16px;
+  border: 1px solid #d1d5db;
+  border-radius: 6px;
+  font-size: 14px;
+  color: #1a2b4a;
+  background-color: #ffffff;
+  transition: border-color 0.2s;
+}
+
+.lecturer-register-input:focus {
+  outline: none;
+  border-color: #d4a017;
+}
+
+.lecturer-register-input::placeholder {
+  color: #9ca3af;
+}
+
+.lecturer-register-password-wrapper {
+  position: relative;
+}
+
+.lecturer-register-password-toggle {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  background: none;
+  border: none;
+  cursor: pointer;
+  padding: 4px;
+}
+
+.lecturer-register-icon {
+  width: 18px;
+  height: 18px;
+  color: #6b7280;
+}
+
+.lecturer-register-button {
+  padding: 14px;
+  background-color: #1a2b4a;
+  border: none;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  cursor: pointer;
+  transition: background-color 0.2s;
+  margin-top: 8px;
+}
+
+.lecturer-register-button:hover {
+  background-color: #0f1a2e;
+}
+
+.lecturer-register-login {
+  text-align: center;
+  font-size: 14px;
+  color: #6b7280;
+  margin: 16px 0 0 0;
+}
+
+.lecturer-register-login button {
+  background: none;
+  border: none;
+  color: #1a2b4a;
+  font-weight: 600;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.lecturer-register-login button:hover {
+  color: #0f1a2e;
+}
+
+@media (max-width: 768px) {
+  .lecturer-register-card {
+    grid-template-columns: 1fr;
+  }
+
+  .lecturer-register-left {
+    padding: 40px 20px;
+  }
+
+  .lecturer-register-right {
+    padding: 30px 20px;
+  }
+}
