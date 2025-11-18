@@ -1,5 +1,5 @@
 .guest-header {
-  height: 75px;
+  height: 70px;
   background-color: #ffffff;
   border-bottom: 1px solid #e5e7eb;
   display: flex;
@@ -23,14 +23,14 @@
 }
 
 .guest-header-logo-img {
-  height: 4rem;
+  height: 45px;
   width: auto;
 }
 
 .guest-header-nav {
   display: flex;
   align-items: center;
-  gap: 4rem;
+  gap: 40px;
   flex: 1;
   justify-content: center;
 }
@@ -38,8 +38,8 @@
 .guest-nav-link {
   background: none;
   border: none;
-  font-size: 1.15rem;
-  font-weight: 600;
+  font-size: 16px;
+  font-weight: 500;
   color: #1a2b4a;
   cursor: pointer;
   padding: 8px 0;

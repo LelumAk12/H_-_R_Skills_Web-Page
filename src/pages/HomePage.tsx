@@ -93,6 +93,14 @@ export function HomePage() {
       image: '/LAW.jpg'
     }]
   };
+  const sectionIds: {
+    [key: string]: string;
+  } = {
+    'Certificate Level': 'certificate-level',
+    'Diploma Level': 'diploma-level',
+    'HND Level': 'hnd-level',
+    'TOP - UP Level': 'topup-level'
+  };
   return <div className="guest-home-page">
       <GuestHeader />
 
@@ -125,7 +133,7 @@ export function HomePage() {
             Find the perfect program to advance your career.
           </p>
 
-          {Object.entries(courseData).map(([level, courses]) => <div key={level} className="guest-program-level">
+          {Object.entries(courseData).map(([level, courses]) => <div key={level} id={sectionIds[level]} className="guest-program-level">
               <h3 className="guest-level-title">{level}</h3>
               <div className="guest-course-grid">
                 {courses.slice(0, expandedLevel === level ? courses.length : 4).map(course => <div key={course.id} className="guest-course-card">

@@ -19,7 +19,7 @@ export function AboutPage() {
     name: 'Mihira Madushanka',
     role: 'Course Instructor',
     description: 'Delivers lessons, guides the learning process, and provides academic support.',
-    image: '/Instructor.jpg'
+    image: '/Instructor.png'
   }];
   return <div className="guest-about-page">
       <GuestHeader />

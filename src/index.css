@@ -67,6 +67,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
 /* Smooth scrolling */
@@ -113,4 +114,218 @@ select:focus {
 /* Header animation */
 [class*="header"] {
   animation: slideInRight 0.4s ease-out;
+}
+
+/* Dark Mode Styles */
+.dark {
+  color-scheme: dark;
+}
+
+.dark body {
+  background-color: #0f172a;
+  color: #e2e8f0;
+}
+
+/* Sidebar Dark Mode */
+.dark .sidebar,
+.dark .ops-sidebar {
+  background-color: #1e293b;
+  border-right-color: #334155;
+}
+
+.dark .sidebar-profile-name,
+.dark .ops-sidebar-title {
+  color: #f1f5f9;
+}
+
+.dark .sidebar-profile-email,
+.dark .ops-sidebar-subtitle {
+  color: #94a3b8;
+}
+
+.dark .sidebar-nav-item,
+.dark .ops-sidebar-nav-item {
+  color: #cbd5e1;
+}
+
+.dark .sidebar-nav-item:hover,
+.dark .ops-sidebar-nav-item:hover {
+  background-color: #334155;
+  color: #f1f5f9;
+}
+
+.dark .sidebar-nav-item.active,
+.dark .ops-sidebar-nav-item.active {
+  background-color: #475569;
+  color: #f1f5f9;
+}
+
+/* Header Dark Mode */
+.dark .header,
+.dark .ops-header {
+  background-color: #1e293b;
+  border-bottom-color: #334155;
+}
+
+.dark .header-nav-link,
+.dark .ops-header-search-input {
+  color: #e2e8f0;
+}
+
+.dark .ops-header-search-input {
+  background-color: #334155;
+  border-color: #475569;
+}
+
+/* Content Dark Mode */
+.dark .profile-section,
+.dark .settings-section,
+.dark .ops-stat-card,
+.dark .ops-chart-card,
+.dark .ops-table-container,
+.dark .course-card,
+.dark .notification-item {
+  background-color: #1e293b;
+  border-color: #334155;
+}
+
+.dark .profile-title,
+.dark .settings-title,
+.dark .ops-dashboard-title,
+.dark .profile-section-title,
+.dark .settings-section-title {
+  color: #f1f5f9;
+}
+
+.dark .profile-subtitle,
+.dark .settings-subtitle {
+  color: #94a3b8;
+}
+
+/* Input Dark Mode */
+.dark .profile-input,
+.dark .settings-input,
+.dark .settings-select,
+.dark .add-course-input,
+.dark .add-course-textarea,
+.dark .live-module-input,
+.dark .live-module-textarea,
+.dark .qualification-input {
+  background-color: #334155;
+  border-color: #475569;
+  color: #e2e8f0;
+}
+
+.dark .profile-input:focus,
+.dark .settings-input:focus,
+.dark .add-course-input:focus,
+.dark .live-module-input:focus {
+  border-color: #60a5fa;
+}
+
+.dark .profile-input:disabled,
+.dark .settings-input:disabled {
+  background-color: #1e293b;
+  color: #64748b;
+}
+
+/* Table Dark Mode */
+.dark .qualification-table,
+.dark .ops-table {
+  background-color: #1e293b;
+}
+
+.dark .qualification-table thead,
+.dark .ops-table thead {
+  background-color: #334155;
+}
+
+.dark .qualification-table th,
+.dark .ops-table th {
+  color: #cbd5e1;
+  border-bottom-color: #475569;
+}
+
+.dark .qualification-table td,
+.dark .ops-table td {
+  color: #e2e8f0;
+  border-top-color: #334155;
+}
+
+.dark .qualification-table tbody tr:hover,
+.dark .ops-table tbody tr:hover {
+  background-color: #334155;
+}
+
+/* Footer Dark Mode */
+.dark .footer,
+.dark .ops-footer {
+  background-color: #0f172a;
+  border-top: 1px solid #1e293b;
+}
+
+/* Button Dark Mode */
+.dark .profile-action-btn.save,
+.dark .settings-btn.save,
+.dark .add-course-btn.next,
+.dark .live-module-btn.schedule {
+  background-color: #3b82f6;
+}
+
+.dark .profile-action-btn.save:hover,
+.dark .settings-btn.save:hover,
+.dark .add-course-btn.next:hover,
+.dark .live-module-btn.schedule:hover {
+  background-color: #2563eb;
+}
+
+.dark .profile-action-btn.cancel,
+.dark .settings-btn.cancel,
+.dark .add-course-btn.back,
+.dark .live-module-btn.cancel {
+  background-color: #334155;
+  border-color: #475569;
+  color: #e2e8f0;
+}
+
+.dark .profile-action-btn.cancel:hover,
+.dark .settings-btn.cancel:hover,
+.dark .add-course-btn.back:hover,
+.dark .live-module-btn.cancel:hover {
+  background-color: #475569;
+}
+
+/* Course Card Dark Mode */
+.dark .course-card {
+  background-color: #1e293b;
+  border-color: #334155;
+}
+
+.dark .course-name,
+.dark .course-title {
+  color: #f1f5f9;
+}
+
+.dark .course-type,
+.dark .course-description {
+  color: #94a3b8;
+}
+
+/* Notification Dark Mode */
+.dark .notification-item {
+  background-color: #1e293b;
+  border-color: #334155;
+}
+
+.dark .notification-item.unread {
+  background-color: #1e3a5f;
+  border-color: #3b82f6;
+}
+
+.dark .notification-item-title {
+  color: #f1f5f9;
+}
+
+.dark .notification-description {
+  color: #94a3b8;
 }

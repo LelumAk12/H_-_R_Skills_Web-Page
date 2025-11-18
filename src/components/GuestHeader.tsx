@@ -6,16 +6,25 @@ export function GuestHeader() {
   const navigate = useNavigate();
   const location = useLocation();
   const [isCoursesOpen, setIsCoursesOpen] = useState(false);
-  const [activeCourseLevel, setActiveCourseLevel] = useState<string | null>(null);
   const dropdownRef = useRef<HTMLDivElement>(null);
-  const courseLevels = ['Certificate', 'Diploma', 'HND', 'TOP - UP'];
-  const courseCategories = ['IT', 'Biomedical Science', 'Management', 'Law'];
+  const courseLevels = [{
+    label: 'Certificate',
+    sectionId: 'certificate-level'
+  }, {
+    label: 'Diploma',
+    sectionId: 'diploma-level'
+  }, {
+    label: 'HND',
+    sectionId: 'hnd-level'
+  }, {
+    label: 'TOP - UP',
+    sectionId: 'topup-level'
+  }];
   // Close dropdown when clicking outside
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
       if (dropdownRef.current && !dropdownRef.current.contains(event.target as Node)) {
         setIsCoursesOpen(false);
-        setActiveCourseLevel(null);
       }
     };
     if (isCoursesOpen) {
@@ -27,28 +36,24 @@ export function GuestHeader() {
   }, [isCoursesOpen]);
   const toggleCoursesDropdown = () => {
     setIsCoursesOpen(!isCoursesOpen);
-    if (isCoursesOpen) {
-      setActiveCourseLevel(null);
-    }
   };
-  const scrollToProgramsSection = () => {
+  const scrollToSection = (sectionId: string) => {
     setIsCoursesOpen(false);
-    setActiveCourseLevel(null);
     if (location.pathname !== '/guest/home') {
       navigate('/guest/home');
       setTimeout(() => {
-        const programsSection = document.getElementById('programs');
-        if (programsSection) {
-          programsSection.scrollIntoView({
+        const section = document.getElementById(sectionId);
+        if (section) {
+          section.scrollIntoView({
             behavior: 'smooth',
             block: 'start'
           });
         }
       }, 100);
     } else {
-      const programsSection = document.getElementById('programs');
-      if (programsSection) {
-        programsSection.scrollIntoView({
+      const section = document.getElementById(sectionId);
+      if (section) {
+        section.scrollIntoView({
           behavior: 'smooth',
           block: 'start'
         });
@@ -73,14 +78,9 @@ export function GuestHeader() {
             <ChevronDownIcon className="guest-nav-chevron" />
           </button>
           {isCoursesOpen && <div className="guest-dropdown-menu">
-              {courseLevels.map(level => <div key={level} className="guest-dropdown-item" onMouseEnter={() => setActiveCourseLevel(level)} onMouseLeave={() => setActiveCourseLevel(null)}>
-                  <span>{level}</span>
-                  {activeCourseLevel === level && <div className="guest-dropdown-submenu">
-                      {courseCategories.map(category => <button key={category} className="guest-dropdown-subitem" onClick={scrollToProgramsSection}>
-                          {category}
-                        </button>)}
-                    </div>}
-                </div>)}
+              {courseLevels.map(level => <button key={level.sectionId} className="guest-dropdown-item" onClick={() => scrollToSection(level.sectionId)}>
+                  {level.label}
+                </button>)}
             </div>}
         </div>
         <button onClick={() => navigate('/guest/contact')} className="guest-nav-link">
