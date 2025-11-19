@@ -25,8 +25,6 @@ export function LoginPage() {
       <div className="guest-login-card">
         <div className="guest-login-left">
           <img src="/Register-Logo.png" alt="H & R Skills" className="guest-login-logo" />
-          <h1 className="guest-login-brand">H & R SKILLS</h1>
-          <p className="guest-login-tagline">Pvt Ltd</p>
         </div>
 
         <div className="guest-login-right">

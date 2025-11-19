@@ -11,8 +11,8 @@ export function HomePage() {
     'Certificate Level': [{
       id: 1,
       title: 'Information Technology',
-      description: 'Great for beginners to build a strong foundation in Information Technology.',
-      image: '/IT.png'
+        description: 'Great for beginners to build a strong foundation in Information Technology.',
+        image: '/IT.png'
     }, {
       id: 2,
       title: 'Biomedical Science',

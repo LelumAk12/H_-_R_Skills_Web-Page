@@ -1,9 +1,14 @@
 import React, { useState } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { EyeIcon, EyeOffIcon } from 'lucide-react';
-import '../styles/StudentRegisterPage.css';
-export function StudentRegisterPage() {
+import '../styles/RegisterPage.css';
+type UserType = 'student' | 'lecturer';
+export function RegisterPage() {
   const navigate = useNavigate();
+  const location = useLocation();
+  // Determine initial user type from URL
+  const initialUserType: UserType = location.pathname.includes('lecturer') ? 'lecturer' : 'student';
+  const [userType, setUserType] = useState<UserType>(initialUserType);
   const [showPassword, setShowPassword] = useState(false);
   const [showConfirmPassword, setShowConfirmPassword] = useState(false);
   const [formData, setFormData] = useState({
@@ -12,9 +17,16 @@ export function StudentRegisterPage() {
     email: '',
     contactNumber: '',
     username: '',
+    subject: '',
     password: '',
     confirmPassword: ''
   });
+  const handleUserTypeChange = (type: UserType) => {
+    setUserType(type);
+    // Update URL without page reload
+    const newPath = type === 'student' ? '/guest/register/student' : '/guest/register/lecturer';
+    window.history.pushState({}, '', newPath);
+  };
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setFormData({
       ...formData,
@@ -27,24 +39,28 @@ export function StudentRegisterPage() {
       alert('Passwords do not match!');
       return;
     }
-    console.log('Student registration:', formData);
+    console.log(`${userType} registration:`, formData);
     alert('Account created successfully!');
-    navigate('/guest/login');
+    if (userType === 'student') {
+      navigate('/guest/login');
+    } else {
+      navigate('/lecturer/login');
+    }
   };
-  return <div className="register-page">
+  return <div className={`register-page ${userType}-theme`}>
       <div className="register-card">
         <div className="register-left">
           <img src="/Register-Logo.png" alt="H & R Skills" className="register-logo" />
-          <h1 className="register-brand">H & R SKILLS</h1>
-          <p className="register-tagline">Pvt Ltd</p>
         </div>
 
         <div className="register-right">
           <h2 className="register-title">Create Your Account</h2>
 
           <div className="register-tabs">
-            <button className="register-tab active">Student</button>
-            <button className="register-tab" onClick={() => navigate('/guest/register/lecturer')}>
+            <button className={`register-tab ${userType === 'student' ? 'active' : ''}`} onClick={() => handleUserTypeChange('student')}>
+              Student
+            </button>
+            <button className={`register-tab ${userType === 'lecturer' ? 'active' : ''}`} onClick={() => handleUserTypeChange('lecturer')}>
               Lecture
             </button>
           </div>
@@ -66,14 +82,17 @@ export function StudentRegisterPage() {
               <input type="email" name="email" placeholder="Enter your email address" value={formData.email} onChange={handleChange} className="register-input" required />
             </div>
 
+            {userType === 'student' ? <div className="register-form-group">
+                <label className="register-label">Username</label>
+                <input type="text" name="username" placeholder="Enter your username" value={formData.username} onChange={handleChange} className="register-input" required />
+              </div> : <div className="register-form-group">
+                <label className="register-label">Subject</label>
+                <input type="text" name="subject" placeholder="e.g. Information Technology" value={formData.subject} onChange={handleChange} className="register-input" required />
+              </div>}
+
             <div className="register-form-group">
               <label className="register-label">Contact Number</label>
               <input type="tel" name="contactNumber" placeholder="Enter your contact number" value={formData.contactNumber} onChange={handleChange} className="register-input" required />
-            </div>
-
-            <div className="register-form-group">
-              <label className="register-label">Username</label>
-              <input type="text" name="username" placeholder="Enter your username" value={formData.username} onChange={handleChange} className="register-input" required />
             </div>
 
             <div className="register-form-group">
@@ -102,7 +121,7 @@ export function StudentRegisterPage() {
 
             <p className="register-login">
               Already Have an account?{' '}
-              <button type="button" onClick={() => navigate('/guest/login')}>
+              <button type="button" onClick={() => navigate(userType === 'student' ? '/guest/login' : '/lecturer/login')}>
                 Log In
               </button>
             </p>

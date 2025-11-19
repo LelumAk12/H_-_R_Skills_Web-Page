@@ -1,11 +1,21 @@
 
 .register-page {
   min-height: 100vh;
-  background-color: #1a2b4a;
   display: flex;
   align-items: center;
   justify-content: center;
   padding: 40px 20px;
+  transition: background-color 0.3s ease;
+}
+
+/* Student Theme */
+.register-page.student-theme {
+  background-color: #11224E;
+}
+
+/* Lecturer Theme */
+.register-page.lecturer-theme {
+  background-color: #D6AB11;
 }
 
 .register-card {
@@ -29,9 +39,9 @@
 }
 
 .register-logo {
-  width: 200px;
+  width: 100%;
+  max-width: 20rem;
   height: auto;
-  margin-bottom: 32px;
 }
 
 .register-brand {
@@ -81,16 +91,23 @@
   font-weight: 600;
   color: #6b7280;
   cursor: pointer;
-  transition: all 0.2s;
-}
-
-.register-tab.active {
-  background-color: #1a2b4a;
-  color: #ffffff;
+  transition: all 0.3s ease;
 }
 
 .register-tab:hover:not(.active) {
   background-color: #e5e7eb;
+}
+
+/* Student Theme - Active Tab */
+.student-theme .register-tab.active {
+  background-color: #11224E;
+  color: #ffffff;
+}
+
+/* Lecturer Theme - Active Tab */
+.lecturer-theme .register-tab.active {
+  background-color: #C49E11;
+  color: #ffffff;
 }
 
 .register-form {
@@ -128,7 +145,16 @@
 
 .register-input:focus {
   outline: none;
-  border-color: #1a2b4a;
+}
+
+/* Student Theme - Input Focus */
+.student-theme .register-input:focus {
+  border-color: #11224E;
+}
+
+/* Lecturer Theme - Input Focus */
+.lecturer-theme .register-input:focus {
+  border-color: #C49E11;
 }
 
 .register-input::placeholder {
@@ -158,18 +184,31 @@
 
 .register-button {
   padding: 14px;
-  background-color: #1a2b4a;
   border: none;
   border-radius: 6px;
   font-size: 16px;
   font-weight: 600;
   color: #ffffff;
   cursor: pointer;
-  transition: background-color 0.2s;
+  transition: background-color 0.3s ease;
   margin-top: 8px;
 }
 
-.register-button:hover {
+/* Student Theme - Button */
+.student-theme .register-button {
+  background-color: #11224E;
+}
+
+.student-theme .register-button:hover {
+  background-color: #0a1530;
+}
+
+/* Lecturer Theme - Button */
+.lecturer-theme .register-button {
+  background-color: #1a2b4a;
+}
+
+.lecturer-theme .register-button:hover {
   background-color: #0f1a2e;
 }
 

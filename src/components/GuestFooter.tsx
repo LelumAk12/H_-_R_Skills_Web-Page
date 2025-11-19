@@ -33,8 +33,6 @@ export function GuestFooter() {
           <div className="guest-footer-logo-wrapper">
             <img src="/Footer-Logo.jpg" alt="H & R Skills" className="guest-footer-logo" />
             <div className="guest-footer-brand">
-              <h3 className="guest-footer-brand-name">H & R Skills</h3>
-              <p className="guest-footer-brand-tagline">Pvt Ltd</p>
             </div>
           </div>
           <div className="guest-footer-social">
