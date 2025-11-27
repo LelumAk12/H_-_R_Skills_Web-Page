@@ -161,8 +161,26 @@
   color: #9ca3af;
 }
 
+.register-input.input-error {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239,68,68,0.06);
+}
+
+.register-error {
+  color: #ef4444;
+  font-size: 13px;
+  margin: 6px 0 0 0;
+}
+
 .register-password-wrapper {
   position: relative;
+}
+
+/* Ensure password inputs take full available width and leave space for the toggle */
+.register-password-wrapper .register-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 44px; /* room for the eye toggle */
 }
 
 .register-password-toggle {

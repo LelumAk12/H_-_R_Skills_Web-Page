@@ -103,12 +103,30 @@
   border-color: #1a2b4a;
 }
 
+.guest-login-input.input-error {
+  border-color: #ef4444;
+  box-shadow: 0 0 0 3px rgba(239,68,68,0.06);
+}
+
+.guest-login-error {
+  color: #ef4444;
+  font-size: 13px;
+  margin: 6px 0 0 0;
+}
+
 .guest-login-input::placeholder {
   color: #9ca3af;
 }
 
 .guest-login-password-wrapper {
   position: relative;
+}
+
+/* Make password input full width and leave room for the toggle button */
+.guest-login-password-wrapper .guest-login-input {
+  width: 100%;
+  box-sizing: border-box;
+  padding-right: 44px; /* room for the eye toggle */
 }
 
 .guest-login-password-toggle {
@@ -121,6 +139,47 @@
   cursor: pointer;
   padding: 4px;
 }
+
+/* Forgot password modal styles */
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1200;
+  padding: 24px;
+}
+.modal-card {
+  background: #fff;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 520px;
+  padding: 20px 20px 18px 20px;
+  box-shadow: 0 14px 40px rgba(10,20,40,0.2);
+  position: relative;
+}
+.modal-close {
+  position: absolute;
+  right: 12px;
+  top: 10px;
+  border: none;
+  background: none;
+  font-size: 20px;
+  cursor: pointer;
+}
+.modal-title {font-size:20px;margin:6px 0 8px 0;color:#1a2b4a}
+.modal-sub {font-size:14px;color:#6b7280;margin:0 0 12px 0}
+.modal-form{display:flex;flex-direction:column;gap:10px}
+.modal-label{font-size:13px;color:#1a2b4a}
+.modal-input{padding:10px 12px;border:1px solid #e6e9ef;border-radius:8px;font-size:14px}
+.modal-error{color:#b91c1c;font-size:13px;margin:4px 0}
+.modal-success{color:#065f46;font-size:13px;margin:4px 0}
+.modal-actions{display:flex;justify-content:flex-end;gap:10px;margin-top:6px}
+.btn-primary{background:#1a2b4a;color:#fff;padding:10px 14px;border-radius:8px;border:none;cursor:pointer}
+.btn-secondary{background:#f3f4f6;color:#1a2b4a;padding:10px 12px;border-radius:8px;border:none;cursor:pointer}
+.btn-primary[disabled],.btn-secondary[disabled]{opacity:0.6;cursor:not-allowed}
 
 .guest-login-icon {
   width: 18px;

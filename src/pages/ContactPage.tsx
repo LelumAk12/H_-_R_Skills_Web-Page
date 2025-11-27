@@ -9,6 +9,8 @@ export function ContactPage() {
     subject: '',
     message: ''
   });
+  const [formErrors, setFormErrors] = useState<{[k:string]: string}>({});
+  const [successMessage, setSuccessMessage] = useState<string | null>(null);
   const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
     setFormData({
       ...formData,
@@ -17,14 +19,28 @@ export function ContactPage() {
   };
   const handleSubmit = (e: React.FormEvent) => {
     e.preventDefault();
+    setFormErrors({});
+    setSuccessMessage(null);
+    const errors: {[k:string]: string} = {};
+    if (!formData.fullName.trim()) errors.fullName = 'Full name is required';
+    if (!formData.email.trim()) errors.email = 'Email is required';
+    else {
+      const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+      if (!re.test(formData.email)) errors.email = 'Please enter a valid email address';
+    }
+    if (!formData.subject.trim()) errors.subject = 'Subject is required';
+    if (!formData.message.trim()) errors.message = 'Message is required';
+    else if (formData.message.trim().length < 20) errors.message = 'Message must be at least 20 characters';
+
+    if (Object.keys(errors).length > 0) {
+      setFormErrors(errors);
+      return;
+    }
+
+    // simulate submit
     console.log('Form submitted:', formData);
-    alert('Message sent successfully! We will get back to you within 24 hours.');
-    setFormData({
-      fullName: '',
-      email: '',
-      subject: '',
-      message: ''
-    });
+    setSuccessMessage('Message sent successfully! We will get back to you within 24 hours.');
+    setFormData({ fullName: '', email: '', subject: '', message: '' });
   };
   return <div className="guest-contact-page">
       <GuestHeader />
@@ -40,26 +56,31 @@ export function ContactPage() {
 
         <div className="guest-contact-main">
           <div className="guest-contact-form-wrapper">
-            <form onSubmit={handleSubmit} className="guest-contact-form">
+            <form onSubmit={handleSubmit} className="guest-contact-form" noValidate>
+              {successMessage && <p className="guest-contact-success">{successMessage}</p>}
               <div className="guest-contact-form-row">
                 <div className="guest-contact-form-group">
                   <label className="guest-contact-label">Full Name</label>
-                  <input type="text" name="fullName" placeholder="Enter your full name" value={formData.fullName} onChange={handleChange} className="guest-contact-input" required />
+                  <input type="text" name="fullName" placeholder="Enter your full name" value={formData.fullName} onChange={handleChange} className={`guest-contact-input ${formErrors.fullName ? 'input-error' : ''}`} />
+                  {formErrors.fullName && <p className="guest-contact-error">{formErrors.fullName}</p>}
                 </div>
                 <div className="guest-contact-form-group">
                   <label className="guest-contact-label">Email Address</label>
-                  <input type="email" name="email" placeholder="saduniperera@gmail.com" value={formData.email} onChange={handleChange} className="guest-contact-input" required />
+                  <input type="email" name="email" placeholder="saduniperera@gmail.com" value={formData.email} onChange={handleChange} className={`guest-contact-input ${formErrors.email ? 'input-error' : ''}`} />
+                  {formErrors.email && <p className="guest-contact-error">{formErrors.email}</p>}
                 </div>
               </div>
 
               <div className="guest-contact-form-group">
                 <label className="guest-contact-label">Subject</label>
-                <input type="text" name="subject" placeholder="What is your question about?" value={formData.subject} onChange={handleChange} className="guest-contact-input" required />
+                <input type="text" name="subject" placeholder="What is your question about?" value={formData.subject} onChange={handleChange} className={`guest-contact-input ${formErrors.subject ? 'input-error' : ''}`} />
+                {formErrors.subject && <p className="guest-contact-error">{formErrors.subject}</p>}
               </div>
 
               <div className="guest-contact-form-group">
                 <label className="guest-contact-label">Your Message</label>
-                <textarea name="message" placeholder="Write your message here..." value={formData.message} onChange={handleChange} className="guest-contact-textarea" rows={6} required />
+                <textarea name="message" placeholder="Write your message here..." value={formData.message} onChange={handleChange} className={`guest-contact-textarea ${formErrors.message ? 'input-error' : ''}`} rows={6} />
+                {formErrors.message && <p className="guest-contact-error">{formErrors.message}</p>}
               </div>
 
               <button type="submit" className="guest-contact-submit-btn">
